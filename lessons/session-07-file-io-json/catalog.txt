@@ -1,0 +1,4 @@
+PHYSICAL,Wireless Mouse,19.99,42,0.15
+PHYSICAL,4K Monitor,399.99,8,6.2
+DIGITAL,Java Fundamentals eBook,14.99,999,https://shopsphere.example/downloads/java-fundamentals
+SUBSCRIPTION,Premium Support,99.99,100,30
