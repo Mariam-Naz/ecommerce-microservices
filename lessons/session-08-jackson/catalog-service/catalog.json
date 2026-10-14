@@ -1,0 +1,25 @@
+[ {
+  "type" : "PHYSICAL",
+  "name" : "Wireless Mouse",
+  "price" : 19.99,
+  "quantityInStock" : 42,
+  "weightKg" : 0.15
+}, {
+  "type" : "PHYSICAL",
+  "name" : "4K Monitor",
+  "price" : 399.99,
+  "quantityInStock" : 8,
+  "weightKg" : 6.2
+}, {
+  "type" : "DIGITAL",
+  "name" : "Java Fundamentals eBook",
+  "price" : 14.99,
+  "quantityInStock" : 999,
+  "downloadUrl" : "https://shopsphere.example/downloads/java-fundamentals"
+}, {
+  "type" : "SUBSCRIPTION",
+  "name" : "Netflix",
+  "price" : 40.0,
+  "quantityInStock" : 1,
+  "renewalPeriodDays" : 30
+} ]

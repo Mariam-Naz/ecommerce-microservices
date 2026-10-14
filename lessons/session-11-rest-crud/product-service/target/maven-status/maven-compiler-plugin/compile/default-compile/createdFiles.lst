@@ -1,0 +1,10 @@
+com\shopsphere\product\ProductController.class
+com\shopsphere\product\PhysicalProduct.class
+com\shopsphere\product\dto\ProductResponse.class
+com\shopsphere\product\CatalogService.class
+com\shopsphere\product\ProductServiceApplication.class
+com\shopsphere\product\DigitalProduct.class
+com\shopsphere\product\dto\ProductRequest.class
+com\shopsphere\product\ProductAlreadyExistsException.class
+com\shopsphere\product\Product.class
+com\shopsphere\product\ProductNotFoundException.class

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  This file is the Project Object Model (POM) - Maven's entire configuration
+  for this project: who it is, what Java version it targets, what external
+  libraries ("dependencies") it needs, and how to build/run it. Maven reads
+  this file and does everything else - downloading dependencies from a
+  central repository, compiling in the right order, running tests - without
+  you ever touching a classpath by hand like we did with "javac *.java".
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+      groupId/artifactId/version together uniquely identify THIS project
+      (the same three things identify every library you depend on too -
+      see the Jackson dependency below). This trio is often called the
+      project's "coordinates".
+    -->
+    <groupId>com.shopsphere</groupId>
+    <artifactId>catalog-service</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!--
+          This is the entire "install" step for a library in Maven-world.
+          Compare this to Session 7, where adding JSON support by hand
+          would have meant writing our own parser. Maven will download
+          this exact jackson-databind version (and its own dependencies)
+          from Maven Central the first time you build, cache it in your
+          ~/.m2 folder, and put it on the classpath automatically for
+          every compile and run from now on.
+        -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.17.2</version>
+        </dependency>
+
+        <!-- JUnit 5, for Session 14 (testing) - included now so it's
+             already in place when we need it. "test" scope means this
+             jar is only available while running tests, never shipped
+             as part of the actual application. -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.3</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Lets us run "mvn exec:java" instead of manually building
+                 a classpath string with every dependency's jar location,
+                 the way we'd have to with plain javac/java. -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <mainClass>com.shopsphere.catalog.CatalogApp</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

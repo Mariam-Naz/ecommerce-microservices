@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+      Inheriting from spring-boot-starter-parent is the standard way to
+      start any Spring Boot Maven project. It doesn't add code - it adds
+      SENSIBLE DEFAULTS: compatible versions for dozens of libraries
+      (so you don't have to pick a Jackson version by hand like we did
+      in Session 8), a default Java version, and useful Maven plugin
+      configuration. This is "convention over configuration" - one of
+      Spring Boot's core philosophies - showing up for the first time.
+    -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.4</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.shopsphere</groupId>
+    <artifactId>product-service</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+
+    <dependencies>
+        <!--
+          ONE dependency. "spring-boot-starter-web" is a STARTER - a
+          bundle that pulls in everything needed to build a web
+          application: an embedded web server (Tomcat, baked right into
+          the jar - no separate server install), Spring MVC (the
+          @RestController machinery), and Jackson (so JSON serialization
+          works automatically, no manual ObjectMapper needed, unlike
+          Session 8 where we wired it up ourselves).
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- This plugin is what makes "mvn spring-boot:run" work, and
+                 also what packages this into a single runnable "fat jar"
+                 later, containing the embedded server and all dependencies. -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
